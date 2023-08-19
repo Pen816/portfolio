@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>スミヤキ テツヤキ 雄笑</title>
+  <link rel="icon" href="img/ファビコン.png">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- BootStrapアイコンリンク -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!-- メニューポップアップ表示 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- スライダー -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header__inner">
+        <a href="#hero" class="header__title header-title">スミヤキ テツヤキ 雄笑</a>
+        <nav class="header__nav nav" id="js-nav">
+          <ul class="nav__items nav-items" id="page-link">
+            <li class="nav-items__item"><a href="#hero" id="js-hero">ホーム</a></li>
+            <li class="nav-items__item"><a href="#menu" id="js-menu">メニュー</a></li>
+            <li class="nav-items__item"><a href="#pic" id="js-pic">写真</a></li>
+            <li class="nav-items__item"><a href="#guide" id="js-guide">店舗案内</a></li>
+            <li class="nav-items__item"><a href="#inquiry" id="js-inquiry">お問い合わせ</a></li>
+          </ul>
+        </nav>
+        <button class="header__hamburger hamburger" id="js-hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <!-- ハンバーガーメニューscript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js"
+      type="text/javascript"></script>  
+    </header>
+
+    <div class="herobgc">
+      <section class="hero" id="hero">
+        <img src="img/外観.jpg" alt="店の外観写真">
+      </section>
+    </div>
+
+    <section class="menu" id="menu">
+      <h2>メ ニ ュ ー</h2>
+      <a href="img/メニュー.png" data-lightbox="group"><img src="img/メニュー.png" width="85%"></a>
+    </section>
+
+    <section class="pic" id="pic">
+      <h2>写 真</h2>
+      <ul class="slider">
+        <li><img src="img/写真１.jpg" alt=""></li>
+        <li><img src="img/写真２.jpg" alt=""></li>
+        <li><img src="img/写真３.jpg" alt=""></li>
+        <li><img src="img/写真４.jpg" alt=""></li>
+        <li><img src="img/写真５.jpg" alt=""></li>
+        <li><img src="img/写真６.jpg" alt=""></li>
+      </ul>
+      <!-- スライダーscript -->
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    </section>
+
+    <section class="guide" id="guide">
+      <h2>店 舗 案 内</h2>
+      <div class="guidemember">
+        <div class="text">
+          <h3>　定休日　　　　　月曜日　　　　　　　　　　　　　　　　 　</h3>
+          <h3>　営業時間　　　　平日：17:00～23:00 (ラストオーダー22:30)　</h3>
+          <h3>　　　　金・土・祝日前：17:00～00:00 (ラストオーダー23:30)　</h3>
+          <h3>　住所　　　　　　福岡県飯塚市柏の森５３２−３　　　　　　　</h3>
+        </div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3321.624001688735!2d130.6942975269531!3d33.640989899999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35417f444c5662d3%3A0x67d7bc8cf3635bd3!2z44K544Of44Ok44KtLuODhuODhOODpOOCrembhOeskQ!5e0!3m2!1sja!2sjp!4v1669774218167!5m2!1sja!2sjp"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+
+    <section class="inquiry" id="inquiry">
+      <h2>お 問 い 合 わ せ</h2>
+      <h3>ご予約・お問い合わせはこちらまで</h3>
+      <h4><span> TEL 0948-88-2154 </span></h4>
+      <a href="https://www.instagram.com/yusho0507/?hl=ja"><i class="bi bi-instagram"></i></a>
+    </section>
+
+    <footer class="footer">
+      <div class="foot">
+        <small>(C) スミヤキ テツヤキ 雄笑</small>
+      </div>
+    </footer>
+  </div>
+
+  <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
+
+</body>
+
+<script src="js/script.js"></script>
+
+</html>

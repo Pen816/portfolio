@@ -1,0 +1,527 @@
+@charset "utf-8";
+
+a {
+  /* aタグの下線削除 */
+  text-decoration: none;
+}
+
+ul,
+li {
+  /* 箇条点削除 */
+  list-style: none;
+}
+
+body {
+  min-width: 350px;
+  /* ヘッダー分下げて表示 */
+  padding-top: 54px;
+  /* body外周の余白を削除 */
+  margin: 0;
+  /* 背景色 */
+  background-color: rgb(253, 255, 227);
+}
+
+
+/* ---------------------ヘッダー--------------------- */
+
+header {
+  /* ヘッダーの高さ */
+  height: 52px;
+  /* ヘッダーの背景色 */
+  background: rgb(250, 240, 0);
+  /* 下記(top,bottom,right,left)で指定した位置にヘッダーを固定 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* ヘッダー下部に境界線描画 */
+  border-bottom: solid;
+  /* ヘッダー下部境界線色指定 */
+  border-color: rgba(0, 0, 0, 0.829);
+  /* ヘッダーの重なり順を最前面に指定 */
+  z-index: 999;
+  /* ロゴの左側の空間幅指定 */
+  padding-left: 20px;
+}
+
+.header__inner {
+  /*ロゴとハンバーガーメニューを横に並べる*/
+  display: flex;
+  /*ロゴを上下中央に配置 */
+  align-items: center;
+  /* ヘッダーのアイテムを均等に配置し、最初のアイテムは先頭、最後のアイテムは末尾に配置 */
+  justify-content: space-between;
+  /* ハンバーガーメニューの高さを、ロゴの高さに揃える */
+  height: inherit;
+}
+
+/* ヘッダーのロゴ部分 */
+.header__title {
+  /* ロゴのフォントサイズ */
+  font-size: 25px;
+  /* ロゴのフォント */
+  font-family: "Yu Mincho", "YuMincho";
+  /* ロゴの横幅指定(ナビに押されて途中改行されるのを防止) */
+  width: 300px;
+  /* ロゴの文字の太さ */
+  font-weight: 1000;
+  /* ロゴの色指定 */
+  color: rgb(0, 0, 0);
+}
+
+/* ヘッダーのナビ部分 */
+.header__nav {
+  /* ナビ.の非アクティブ時の位置指定 */
+  position: absolute;
+  right: -230px;
+  top: 54.5px;
+  /* ナビ.の横幅指定 */
+  width: 230px;
+  /* ナビ.の縦幅指定 */
+  height: 1000px;
+  /* ナビ.の背景色指定 */
+  background-color: rgb(0, 0, 0);
+  /*ハンバーガーメニュークリック時のナビゲーションメニュー出現を遅延*/
+  transition: ease .4s;
+}
+
+.nav-items{
+  margin: 0;
+}
+
+/* ハンバーガーメニュー */
+.header__hamburger {
+  /* margin-bottom: 0.5px; */
+  /* ハンバーガーメニューの横幅指定 */
+  width: 48px;
+  /* ハンバーガーメニューの縦幅指定 */
+  height: 100%;
+  /* カーソルホバー時、マウスカーソルをリンクポインタに指定 */
+  cursor: pointer;
+  /*buttonタグデフォルトスタイルを打ち消し*/
+  background-color: transparent;
+  border-color: transparent;
+}
+
+/* ハンバーガーメニューの線 */
+.hamburger span {
+  /* ハンバーガーメニューの線の太さ指定 */
+  height: 1.9px;
+  /* ハンバーガーメニューの色指定 */
+  background-color: #000;
+  /* 各線毎に通常の表示位置を基準にした相対位置を指定 */
+  position: relative;
+  /*ハンバーガーメニュークリック時の三本線の動きを遅延*/
+  transition: ease .4s;
+  /* ハンバーガーメニューの各線を立て並びに配置 */
+  display: block;
+}
+
+.hamburger span:nth-child(1) {
+  /* position: relative;に対し相対位置指定 */
+  top: -1.5px;
+}
+
+.hamburger span:nth-child(2) {
+  /* 各線の間隔指定 */
+  margin: 7px 0;
+}
+
+.hamburger span:nth-child(3) {
+  /* position: relative;に対し相対位置指定 */
+  top: 1.5px;
+}
+
+/* ハンバーガーメニュークリック後のスタイル */
+.header__nav.active {
+  /* position: absolute; */
+  right: 0px;
+}
+
+.hamburger.active span:nth-child(1) {
+  /* 各線のactiv時のposition: relative;に対し相対位置指定 */
+  top: 10px;
+  /* 各線のactiv時の角度設定 */
+  transform: rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  /* activ時2本目の線を削除 */
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  /* 各線のactiv時のposition: relative;に対し相対位置指定 */
+  top: -8px;
+  /* 各線のactiv時の角度設定 */
+  transform: rotate(-45deg);
+}
+
+/* ナビのリンク */
+.nav-items__item a {
+  /* ナビメニューのフォント */
+  font-family: "メイリオ", "YuGothic";
+  /* マウスホバー時の色の変化遅延 */
+  transition: 0.3s ease-in-out;
+  color: rgb(255, 251, 0);
+  /* ナビのリンクを縦並び等間隔表示 */
+  display: block;
+  /* ナビのリンクを中央寄せ */
+  text-align: center;
+  /* フォントサイズ指定 */
+  font-size: 20px;
+  /* ナビリンクの上下左右間隔指定 */
+  padding: 23px 12px;
+}
+
+.nav-items a:hover {
+  /* ナビマウスホバー時の色指定 */
+  background: rgb(250, 240, 0);
+  color: #000;
+}
+
+
+/* ---------------------hero--------------------- */
+
+.herobgc {
+  /* hero背景色指定 */
+  background: rgb(43, 42, 0);
+  /* hero下線の指定 */
+  border-bottom: 3px solid rgb(14, 13, 0);
+}
+
+.hero {
+  /* ブラウザ拡大時hero画像左右余り幅自動調整 */
+  margin: auto;
+  /* hero画像最大サイズ指定 */
+  max-width: 1100px;
+}
+
+.hero img {
+  /* hero画像サイズ指定 */
+  width: 100%;
+}
+
+/* ---------------------main--------------------- */
+
+h2 {
+  /* 項目高さ指定 */
+  height: 39px;
+  /* 項目の外枠を表示位置を基準にした相対位置を指定 */
+  position: relative;
+  /* 項目外枠内の文字位置指定 */
+  padding: 5px 0 0 0;
+  /* 項目背景色指定 */
+  background: rgb(250, 240, 0);
+  /* 項目の上下左右の間隔指定 */
+  margin: 30px 15px 15px 15px;
+  /* 項目フォントサイズ指定 */
+  font-size: 20px;
+  /* 項目の文字を中央寄せ */
+  text-align: center;
+}
+
+/* 疑似要素により項目枠線追加 */
+h2:before {
+  /* 項目枠線表示 */
+  border: 3px solid #000;
+  /* 項目枠線の表示位置を絶対値指定 */
+  position: absolute;
+  top: -7px;
+  left: -7px;
+  /* 項目枠線横幅指定 */
+  width: 99.5%;
+  /* 項目枠線縦幅指定 */
+  height: 95%;
+  /* 疑似要素の内容を特に指定しない */
+  content: '';
+}
+
+.menu {
+  /* メニュー画像中央寄せ */
+  text-align: center;
+}
+
+.menu a img {
+  /* メニュー画像最大サイズ指定 */
+  max-width: 800px;
+}
+
+
+/*-----スライダー-----*/
+.slider {
+  /* スライダーの横幅指定 */
+  width: 90%;
+  /* スライダーの上下余白指定、左右中央揃え */
+  margin: 50px auto 60px auto;
+}
+
+.slider img {
+  /* スライダー表示画像サイズ指定 */
+  width: 50vw;
+  /*スライダー表示画像最大サイズ指定*/
+  max-width: 450px;
+}
+
+/* 左右表示画像設定 */
+.slider .slick-slide {
+  /* スライダー左右表示画像サイズ指定（80％） */
+  transform: scale(0.8);
+  /* 画像切り替わり時の拡大・透過アニメーションを0.5秒で行う */
+  transition: all .5s;
+  /* 左右表示画像の透過度 */
+  opacity: 0.5;
+}
+
+/* 中央表示画像設定 */
+.slider .slick-slide.slick-center {
+  /* 中央表示画像のみ等倍表示 */
+  transform: scale(1);
+  /* 中央表示画像の透過度 */
+  opacity: 1;
+}
+
+/*矢印の設定*/
+.slick-prev,
+.slick-next {
+  /* 項目枠線の表示位置を絶対値指定 */
+  position: absolute;
+  top: 42%;
+  /* マウスホバー時マウスカーソルをポインターに指定 */
+  cursor: pointer;
+  /* 矢印の色指定 */
+  border-top: 2px solid rgb(112, 105, 0);
+  border-right: 2px solid rgb(112, 105, 0);
+  /* 矢印のサイズ指定 */
+  height: 18px;
+  width: 18px;
+}
+
+/* 戻る矢印指定 */
+.slick-prev {
+  /*戻る矢印の位置指定*/
+  left: -1.5%;
+  /* 戻る矢印の向き指定 */
+  transform: rotate(-135deg);
+}
+
+/* 進む矢印指定 */
+.slick-next {
+  /*進む矢印の位置指定*/
+  right: -1.5%;
+ /* 進む矢印の向き指定 */
+  transform: rotate(45deg);
+}
+
+/*ドットナビゲーションの指定*/
+.slick-dots {
+  /* 左右中央揃え */
+  text-align: center;
+  /* 上部余白設定 */
+  margin-top: 30px;
+}
+
+.slick-dots li {
+  /* ドットナビゲーション横並び指定 */
+  display: inline-block;
+  /* ドットナビゲーション左右間隔指定 */
+  margin: 0 5px;
+}
+
+.slick-dots button {
+  /* 要素（番号）を透明化 */
+  color: transparent;
+  /* ドットボタン横幅指定 */
+  width: 8px;
+  /*ドットボタン縦幅指定*/
+  height: 16px;
+  /* ドットボタンの境界外側の角の丸み指定 */
+  border-radius: 30%;
+  /* ドットボタン待機色指定 */
+  background: rgb(41, 44, 0);
+  /* マウスホバー時マウスカーソルをポインターに指定 */
+  cursor: pointer;
+
+}
+
+.slick-dots .slick-active button {
+ /*ドットボタンの現在地色指定*/
+  background: rgb(250, 240, 0);
+}
+
+ul {
+  /* ulタグデフォルトpaddingを削除しスライダー表示位置指定 */
+  padding: 0;
+}
+/*-----スライダーここまで-----*/
+
+.guide {
+  /* マップ左右中央揃え */
+  text-align: center;
+}
+
+.guide .text {
+  /* 店舗案内テキスト上部間隔指定 */
+  margin-top: 50px;
+  /* 店舗案内テキストサイズ指定 */
+  font-size: 2.5vw;
+}
+
+.guide .text h3 {
+  /* 店舗案内テキスト左詰め */
+  text-align: left;
+  /* 店舗案内テキスト行間指定、左右中央揃え */
+  margin: 10px auto;
+  /* 店舗案内テキスト下線指定 */
+  border-bottom: solid 3px rgba(177, 165, 0, 0.445);
+  /* 店舗案内テキスト全体横幅指定 */
+  width: 96%;
+}
+
+/* マップ指定 */
+iframe {
+  /* 枠線指定 */
+  border: 3px solid rgb(250, 240, 0);
+  /* マップ横幅指定 */
+  width: 95%;
+  /* マップ横幅最大サイズ指定 */
+  max-width: 800px;
+  /*アスペクト比（縦横比）指定*/
+  aspect-ratio: 16 / 9;
+  /* マップ上下間隔指定 */
+  margin: 50px auto 30px auto;
+}
+
+.inquiry {
+  /* 左右中央揃え */
+  text-align: center;
+  /* .inquiryからfooterまでの間隔指定 */
+  padding-bottom: 50px;
+}
+
+.inquiry h3 {
+  /* テキストサイズ指定 */
+  font-size: min(5vw, 28px);
+  /* 上部間隔指定 */
+  margin-top: 75px;
+}
+
+.inquiry h4 {
+  /* テキストサイズ指定 */
+  font-size: min(8.2vw, 60px);
+  /* 電話番号横幅指定 */
+  width: 90%;
+  /* 上下間隔指定 */
+  margin: 30px auto 30px auto;
+}
+
+.inquiry h4 span {
+  /* 電話番号下線指定 */
+  border-bottom: double 10px rgb(250, 240, 0);
+
+}
+
+.inquiry i {
+  /* インスタリンクアイコンサイズ指定 */
+  font-size: 45px;
+  /* インスタリンクアイコン色指定 */
+  color: #000;
+}
+
+/* ---------------------フッター--------------------- */
+
+footer {
+  /* フッター背景色指定 */
+  background: #000000;
+  /* フッター幅指定 */
+  padding: 10px 0;
+  /* フッター文字色指定 */
+  color: #eee;
+  /* 左右中央揃え */
+  text-align: center;
+}
+
+/* ---------------------レスポンシブデザイン--------------------- */
+
+/* 画面横サイズが850pxを超えたとき */
+@media (min-width:850px) {
+  .guide>.guidemember {
+    /* guidememberを横並び配置 */
+    display: flex;
+    /* guidemember上下中央揃え */
+    align-items: center;
+    /* guidemember横幅指定 */
+    width: 95%;
+    /* guidemember左右中央揃え */
+    margin: 0 auto;
+  }
+
+  .guide>.guidemember>.text {
+    /* 店舗案内テキストとマップの間隔指定 */
+    margin: 0 3% 0 1%;
+    /* 店舗案内テキストフォントサイズ指定 */
+    font-size: 1.1vw;
+  }
+
+  .guide .text h3 {
+    /* 店舗案内テキスト横幅指定（各行の途中で改行されないように） */
+    width: 100%;
+  }
+
+  .guide>.guidemember>iframe {
+    /* マップ横幅指定 */
+    width: 50%;
+  }
+}
+
+/* 画面横サイズが960pxを超えたとき */
+@media screen and (min-width: 960px) {
+  .nav-items__item a {
+    /* ナビアイテム文字色指定 */
+    color: rgb(0, 0, 0);
+  }
+
+  .nav-items__item a:hover {
+    /* ナビアイテムマウスホバー時背景色指定 */
+    background: rgb(0, 0, 0);
+    /* ナビアイテムマウスホバー時文字色指定 */
+    color: rgb(255, 251, 0);
+  }
+
+  .header__nav {
+    /* 要素を元々の位置（position: absolute;により操作される前の位置）に配置 */
+    position: static;
+    /* ヘッダー色をナビ背景色に指定 */
+    background-color: inherit;
+    /* ナビをロゴと横並びに表示 */
+    display: flex;
+    /* ナビを右詰め指定 */
+    justify-content: end;
+    /* ナビ横幅指定 */
+    width: 80%;
+    /* ナビ縦幅指定 */
+    height: 30px;
+  }
+
+  .nav__items {
+    /* ナビアイテム横幅指定 */
+    width: 550px;
+    /* ナビアイテム横並び指定 */
+    display: flex;
+    /* ナビアイテム上下中央揃え */
+    align-items: center;
+    /* ナビアイテムを右詰め指定 */
+    justify-content: end;
+  }
+
+  /* ナビのリンク */
+  .nav-items__item a {
+    padding: 13px 12px;
+  }
+
+  .hamburger {
+    /* ハンバーガーメニュー非表示 */
+    display: none;
+  }
+
+}
